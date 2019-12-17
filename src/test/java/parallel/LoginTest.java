@@ -1,5 +1,6 @@
 package parallel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LoginTest {
@@ -11,11 +12,20 @@ public class LoginTest {
         loginPage = new LoginPage();
         loginPage.visit();
 
+        loginPage.loginAs("standard_user", "secret_sauce");
+
+        // kind of hacky but it does work
+        Assert.assertEquals(loginPage.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+
     }
 
     @Test
     public void invalid(){
         loginPage = new LoginPage();
         loginPage.visit();
+
+        loginPage.loginAs("bad", "name");
+
+        Assert.assertTrue(loginPage.errorMessageDisplayed());
     }
 }

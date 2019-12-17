@@ -2,7 +2,7 @@ package parallel;
 
 import org.junit.Test;
 
-public class InventoryPageTest {
+public class InventoryPageTest extends Page {
 
     private InventoryPage inventoryPage;
 

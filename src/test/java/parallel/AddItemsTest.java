@@ -1,6 +1,7 @@
 package parallel;
 
 import org.junit.Test;
+import org.junit.Assert;
 
 public class AddItemsTest extends TestBase {
 
@@ -11,6 +12,9 @@ public class AddItemsTest extends TestBase {
         inventoryPage = new InventoryPage();
         inventoryPage.visit();
 
+        inventoryPage.addItems(1);
+
+        Assert.assertEquals(inventoryPage.getNumberOfItemsInCart(), "1");
 
     }
 
@@ -18,6 +22,13 @@ public class AddItemsTest extends TestBase {
     public void addTwoItems() {
         inventoryPage = new InventoryPage();
         inventoryPage.visit();
+
+        inventoryPage = new InventoryPage();
+        inventoryPage.visit();
+
+        inventoryPage.addItems(2);
+
+        Assert.assertEquals(inventoryPage.getNumberOfItemsInCart(), "1");
 
     }
 }

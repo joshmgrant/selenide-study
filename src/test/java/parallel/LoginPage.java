@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoginPage {
+public class LoginPage extends Page {
 
     private SelenideElement userInput = $(By.id("user-name"));
     private SelenideElement passwordInput = $(By.id("password"));
